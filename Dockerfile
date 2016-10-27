@@ -7,4 +7,5 @@ COPY start.sh /tmp/start.sh
 
 RUN [ "/bin/sh", "/tmp/install.sh" ]
 
-RUN [ "/bin/sh", "/tmp/start.sh" ]
+CMD [ "/bin/sh", "/tmp/start.sh" ]
+

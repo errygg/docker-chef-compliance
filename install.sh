@@ -6,7 +6,7 @@ cd $temp_dir
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -q --yes
-apt-get install -q --yes wget vim ca-certificates
+apt-get install -q --yes wget vim ca-certificates supervisor
 
 wget -nv https://packages.chef.io/stable/ubuntu/12.04/chef-compliance_1.5.14-1_amd64.deb
 
@@ -16,3 +16,6 @@ dpkg -i chef-compliance_1.5.14-1_amd64.deb
 
 cd /
 rm -rf $temp_dir
+
+nohup /bin/sh -c /opt/chef-compliance/embedded/bin/runsvdir-start &
+/opt/chef-compliance/bin/chef-compliance-ctl reconfigure --accept-license
