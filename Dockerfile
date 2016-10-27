@@ -1,7 +1,7 @@
 FROM ubuntu:12.04
 MAINTAINER Erik R. Rygg <errygg@gmail.com>
 
-EXPOSE 80 443 5432
+EXPOSE 80 443 5432 2134
 COPY install.sh /tmp/install.sh
 COPY start.sh /tmp/start.sh
 
