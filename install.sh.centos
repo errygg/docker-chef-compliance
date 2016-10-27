@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e -x
+
+temp_dir="`mktemp -d`"
+cd $temp_dir
+
+yum update -y
+yum install -y wget vim
+#export DEBIAN_FRONTEND=noninteractive
+#apt-get update -q --yes
+#apt-get install -q --yes wget vim
+
+wget -nv https://packages.chef.io/stable/el/7/chef-compliance-1.5.14-1.el7.x86_64.rpm
+
+#wget -nv https://packages.chef.io/stable/ubuntu/14.04/chef-compliance_1.6.8-1_amd64.deb
+
+rpm -Uvh chef-compliance-1.5.14-1.el7.x86_64.rpm
+
+cd /
+rm -rf $temp_dir
